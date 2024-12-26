@@ -1,0 +1,124 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Background Style */
+.back {
+    background-image: url("Free-HD-white-background-image-on-Fotor.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Back Link */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    color: #242020;
+    text-decoration: none;
+    background: rgba(214, 211, 211, 0.8);
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+    background: #fffbfb;
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Animated Text Container */
+.hwContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #0a0a0a;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hwContainer span {
+    display: inline-block;
+    animation: zoom 2.5s ease-in forwards;
+}
+
+.hwContainer span:nth-of-type(n) {
+    animation-delay: calc(var(--n) * 0.1s);
+}
+
+/* Zoom Animation */
+@keyframes zoom {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        color: #aba7ac;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Form Container */
+.form {
+    background-color: rgba(243, 238, 238, 0.9);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Button Styles */
+.sign {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sign:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}

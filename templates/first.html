@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='first.css') }}">
+    <title>Career Recommendation Platform</title>
+</head>
+<body class="bdy">
+    <main>
+        <section id="text" aria-label="Welcome Message">
+            <div class="line">
+                <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>&nbsp;&nbsp;
+                <span>T</span><span>O</span>
+            </div>
+            <div class="line">
+                <span>C</span><span>A</span><span>R</span><span>E</span><span>E</span><span>R</span>&nbsp;&nbsp;
+                <span>R</span><span>E</span><span>C</span><span>O</span><span>M</span><span>M</span><span>E</span><span>N</span><span>D</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>&nbsp;&nbsp;&nbsp;
+                <span>P</span><span>L</span><span>A</span><span>T</span><span>F</span><span>O</span><span>R</span><span>M</span>
+            </div>
+        </section>
+        <div class="buttons" aria-label="Authentication Options">
+            <a href="login_page"><button class="login" aria-label="Log in">Log in</button></a>
+            <p class="or-text">OR</p>
+            <a href="reg_page"><button class="register" aria-label="Register">Register</button></a>
+        </div>
+    </main>
+
+    <script>
+        // Adding dynamic animation delays
+        document.addEventListener("DOMContentLoaded", () => {
+            const spans = document.querySelectorAll("#text span");
+            spans.forEach((span, index) => {
+                span.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

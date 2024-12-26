@@ -1,0 +1,135 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+   background-image: url("corner-building-for-4k-white-background-tsx7c82luhg36ygy.jpg");
+    padding: 0;
+    color: #171616;
+}
+
+/* Back Button Styling */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    color: #f4f4f4;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back-link:hover {
+    background: #575757;
+    color: white;
+    text-decoration: underline;
+}
+
+/* H1 Title Animation */
+h1 {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.5); /* Faded text initially */
+    margin-top: 20px;
+}
+
+h1:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 0; /* Hidden initially */
+    white-space: nowrap;
+    color: #181818; /* Golden color for emphasis */
+    animation: reveal 50s linear forwards; /* Animation for transition */
+}
+
+@keyframes reveal {
+    0% {
+        max-width: 0; /* Start with text hidden */
+    }
+    100% {
+        max-width: 100%; /* Reveal full text */
+    }
+}
+
+/* Registration Form Styling */
+.register-form {
+    background-color: rgba(178, 177, 177, 0.7); /* Darker background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(253, 250, 250, 0.3);
+    width: 50%;
+    font-size: 1.2em;
+    margin: 30px auto;
+    padding: 30px;
+    opacity: 0.95;
+    border: 1px solid #333;
+}
+
+/* Input Fields Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #fffdfd;
+    color: #191818;
+}
+
+input[type="radio"] {
+    width: auto;
+    display: inline-block;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: #6c6c69; /* Gold focus border */
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Submit Button Styling */
+.submit {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #757470;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: #121212;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #08e4f8;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .register-form {
+        width: 80%;
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .submit {
+        font-size: 1em;
+    }
+}

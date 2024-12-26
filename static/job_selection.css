@@ -1,0 +1,86 @@
+    body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-image: url("depositphotos_187699694-stock-illustration-empty-interior-with-large-windows.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+       
+        .container {
+            display: inline-block;
+            background-color: rgb(148, 154, 154);
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0.8;
+            color: #090909;
+         }
+
+      
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+      
+        form {
+            font-size:20px;
+            color: #080808;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size:30px;
+            font-family:'Courier New', Courier, monospace
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color:black;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+            font-style: italic;
+        }
+
+        select:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #8c8e8c, #fbfffb);
+            color: rgb(51, 50, 50);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(106, 201, 230, 0.4);
+        }

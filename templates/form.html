@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Form</title>
+    <link rel="stylesheet" href="../static/form.css">
+</head>
+<body>
+   <div class="form-container">
+        <h1>Recommendation Form</h1>
+        <form action="job-application.html" method="GET">
+            
+            <h2>Personal Information</h2>
+            <div class="form-group">
+                <label for="full-name">First Name:</label>
+                <input type="text" id="full-name" placeholder="Enter your first name" required>
+                <label for="full-name">Last Name:</label>
+                <input type="text" id="full-name" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" pattern="^[7-9][0-9]{9}" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="abc@gmail.com" required>
+            </div>
+            <div>
+                <label for="gender"><b>Gender:</b></label>
+                <input type="radio" name ="gender" value="male">Male
+                <input type="radio" name = "gender" value="female">Female   
+            </div><br>
+            <div>
+                <b>Courses:</b>&nbsp;
+            <select name="Courses" id="Courses">
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="ISE">Information Science and Engineering</option>
+                <option value="ECE">Electronics and Communication</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="ML">Machine Learning</option>
+                <option value="DS">Data Science</option>
+                <option value="Mech">Mechanical Engineering</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="print">Printing Engineering</option>
+            </select>
+        </div><br>
+        <div>
+            <b>Marital Status:</b>&nbsp;
+        <select name="Status" id="Status">
+            <option value="Single">Single</option>
+            <option value="Married">Married</option> 
+        </select><br><br>
+        <label for="hobbies"><b>Hobbies:</b></label>
+            <label><input type="checkbox" value="Option1">Sports</label>
+            <label><input type="checkbox" value="Option2">Gardening</label>
+            <label><input type="checkbox" value="Option3">Reading</label>
+            <label><input type="checkbox" value="Option4">Coding</label>
+            <label><input type="checkbox" value="Option4">Travelling</label>
+            <label><input type="checkbox" value="Option4">Singing</label>
+            <label><input type="checkbox" value="Option4">Dancing</label>
+            <label><input type="checkbox" value="Option4">Theater</label>
+            <label><input type="checkbox" value="Option4">Poetry</label>
+            <label><input type="checkbox" value="Option4">Acting</label>
+    </div><br>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" rows="3" placeholder="" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" placeholder="Enter your nationality" required>
+            </div>
+
+            <h2>Educational Details</h2>
+            <div class="form-group">
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" placeholder="e.g., Bachelor's, Master's">
+            </div>
+            <div class="form-group">
+                <label for="field">Field of Study:</label>
+                <input type="text" id="field" placeholder="e.g., Computer Science">
+            </div>
+            <div class="form-group">
+                <label for="institution">Institution Name:</label>
+                <input type="text" id="institution" placeholder="Enter institution name" >
+            </div>
+            <div class="form-group">
+                <label for="graduation">Year of Graduation:</label>
+                <input type="number" id="graduation" min="1900" max="2099" placeholder="Enter year">
+            </div>
+            <div class="form-group">
+                <label for="cgpa">CGPA:</label>
+                <input type="number" id="cgpa" placeholder="Enter CGPA" required>
+            </div>
+            <h2>Certifications</h2>
+            <div class="form-group">
+                <label for="certification">Certification Name:</label>
+                <input type="text" id="certification-name" placeholder="Enter certificate name" required>
+            </div>
+            <div class="form-group">
+                <label for="organization">Issuing Organization:</label>
+                <input type="text" id="organization" placeholder="Enter organization name" required>
+            </div>
+            <div class="form-group">
+                <label for="issue-date">Date Of Issue:</label>
+                <input type="date" id="issue-date" required>
+            </div>
+            <div class="form-group">
+                <label for="upload-certificate">Upload Certification:</label>
+                <input type="file" id="upload-certificate" accept=".pdf, .jpg, .png" required>
+                <small>Accepted formats: .pdf, .jpg, .png</small>
+            </div>
+        
+        <h2>Skills</h2>
+        <form action="/submit_skills" method="POST">
+            <div class="form-group" id="skills-section">
+                <div class="skill-item">
+                    <input type="text" name="skills[]" placeholder="Enter your skill" required>
+                    <span class="add-btn" onclick="addSkill()">+</span>
+                    <span class="remove-btn" onclick="removeSkill(this)">-</span>
+                </div>
+            </div>
+    
+            
+        </form>
+    
+        <script>
+            function addSkill() {
+                const skillsSection = document.getElementById('skills-section');
+                const skillItem = document.createElement('div');
+                skillItem.className = 'skill-item';
+                skillItem.innerHTML = `
+                    <input type="text" name="skills[]" placeholder="Enter your skill" required>
+                    <span class="remove-btn" onclick="removeSkill(this)">-</span>
+                `;
+                skillsSection.appendChild(skillItem);
+            }
+    
+            function removeSkill(button) {
+                const skillItem = button.parentElement;
+                const skillsSection = document.getElementById('skills-section');
+                if (skillsSection.children.length > 1) {
+                    skillsSection.removeChild(skillItem);
+                } else {
+                    alert('You must have at least one skill.');
+                }
+            }
+        </script>
+        
+           
+            <h2>Projects</h2>
+            <div id="projects-section">
+                <div class="project-group">
+                    <div class="form-group">
+                        <label for="project-name">Project Name:</label>
+                        <input type="text" name="project-name[]" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-link">Project Link:</label>
+                        <input type="text" name="project-link[]" placeholder="Enter project link" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-role">Your Role:</label>
+                        <input type="text" name="project-role[]" placeholder="e.g., Team Leader, Developer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tools">Tools/Technologies Used:</label>
+                        <input type="text" name="tools[]" placeholder="e.g., HTML, CSS, Python" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Project Description:</label>
+                        <textarea name="project-description[]" rows="3" placeholder="Describe the project"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="add-project-btn">Add Project</button>
+            <script>
+                document.getElementById("add-project-btn").addEventListener("click", function() {
+                    const projectsSection = document.getElementById("projects-section");
+                    const newProjectGroup = document.createElement("div");
+                    newProjectGroup.classList.add("project-group");
+                    newProjectGroup.innerHTML = `
+                        <div class="form-group">
+                            <label for="project-name">Project Name:</label>
+                            <input type="text" name="project-name[]" placeholder="Enter project name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-link">Project Link:</label>
+                            <input type="text" name="project-link[]" placeholder="Enter project link" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-role">Your Role:</label>
+                            <input type="text" name="project-role[]" placeholder="e.g., Team Leader, Developer" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tools">Tools/Technologies Used:</label>
+                            <input type="text" name="tools[]" placeholder="e.g., HTML, CSS, Python" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-description">Project Description:</label>
+                            <textarea name="project-description[]" rows="3" placeholder="Describe the project"></textarea>
+                        </div>
+                    `;
+                    projectsSection.appendChild(newProjectGroup);
+                });
+            </script>
+            
+            <h2>Experience</h2>
+            <div class="form-group">
+                <label for="company">Company Name:</label>
+                <input type="text" id="company" placeholder="Enter company name" required>
+            </div>
+            <div class="form-group">
+                <label for="experience-role">Role:</label>
+                <input type="text" id="experience-role" placeholder="Enter your role" required>
+            </div>
+            <div class="form-group">
+                <label for="experience-duration">Duration:</label>
+                <input type="text" id="experience-duration" placeholder="Enter your duration" required>
+            </div>
+
+            <div class="form-group">
+                <label for="portfolio">Portfolio Link:</label>
+                <input type="text" id="portfolio" placeholder="Enter portfolio link">
+            </div>
+
+            <div class="form-group">
+                <label for="linkedin">LinkedIn Profile:</label>
+                <input type="url" id="linkedin" placeholder="Enter LinkedIn profile URL">
+            </div>
+
+            <div class="form-group">
+                <a href="job_page"><button type="submit" class="btn">Submit</button></a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+

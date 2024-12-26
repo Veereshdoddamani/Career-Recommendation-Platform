@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='reg.css') }}"> 
+    </head>
+    <body class="back">
+        <!-- Back button updated to use Flask's url_for -->
+        <a href="{{ url_for('home') }}" class="back-link">← Back</a>
+        
+        <h1 data-text="Register here!">Register here!</h1>
+
+        <div class="register-form">
+            <form id="registerForm">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" placeholder="Enter First Name" required><br><br>
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter Last Name" required><br><br>
+
+                <label for="dob">Date-Of-Birth:</label>
+                <input type="date" id="dob" name="dob" required><br><br>
+
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required><br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <label for="cpassword">Confirm Password:</label>
+                <input type="password" id="cpassword" name="cpassword" required><br><br>
+
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+
+        <script>
+            // Form validation for matching passwords and redirect on success
+            document.getElementById("registerForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent form submission to the server
+
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("cpassword").value;
+
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return; // Stop the process if passwords don't match
+                }
+
+                // Collect form data
+                const formData = {
+                    fname: document.getElementById("fname").value,
+                    lname: document.getElementById("lname").value,
+                    dob: document.getElementById("dob").value,
+                    gender: document.querySelector('input[name="gender"]:checked').value,
+                    phone: document.getElementById("phone").value,
+                    email: document.getElementById("email").value,
+                    password: password
+                };
+
+                // Send the data to the backend
+                fetch("/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === "User registered successfully") {
+                        alert("Registration successful! Redirecting to login page...");
+                        window.location.href = "{{ url_for('login_page') }}";  // Redirect to login page route
+                    } else {
+                        alert(data.message);  // Show any error message from the backend
+                    }
+                })
+                .catch(error => {
+                    console.error("Error during registration:", error);
+                    alert("Something went wrong. Please try again.");
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Analysis</title>
+    <link rel="stylesheet" href="../static/final.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Analysis Results</h1>
+
+        <label for="preferred-job">Your Preferred Job:</label>
+        <div id="preferred-job" class="output">{{ preferred_job }}</div>
+
+        <label for="match-percentage">Percentage Match:</label>
+        <div id="match-percentage" class="output percentage">{{ match_percentage }}%</div>
+
+        <label for="recommended-job">Recommended Job for You:</label>
+        <div id="recommended-job" class="output">{{ recommended_job }}</div>
+    </div>
+</body>
+</html>

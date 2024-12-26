@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <title>Login</title>
+</head>
+<body class="back">
+    <!-- Use Flask's url_for to link to the first.html page -->
+    <a href="{{ url_for('home') }}" class="back-link">&larr; Back</a>
+
+    <div class="hwContainer">
+        <span>L</span><span>o</span><span>g</span><span>i</span><span>n</span>&nbsp;
+        <span>t</span><span>o</span>&nbsp;
+        <span>C</span><span>a</span><span>r</span><span>e</span><span>e</span><span>r</span>&nbsp;
+        <span>R</span><span>e</span><span>c</span><span>o</span><span>m</span><span>m</span><span>e</span><span>n</span><span>d</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span>&nbsp;
+        <span>P</span><span>l</span><span>a</span><span>t</span><span>f</span><span>o</span><span>r</span><span>m</span>
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="form">
+        <form id="loginForm" method="POST" action="/login">
+            <h2>Log&nbsp;in</h2>
+            <label>
+                <input type="text" id="email_or_number" name="email_or_number" placeholder="Email or Phone Number*" required>
+            </label>
+            <br>
+            <label>
+                <input type="password" id="password" name="password" placeholder="Password*" required>
+            </label>
+            <br>
+            <button class="sign" type="submit">Log in</button>
+        </form>
+    </div>
+
+    <script>
+        // Login form validation
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            const emailOrNumber = document.getElementById("email_or_number").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!emailOrNumber || !password) {
+                e.preventDefault(); // Prevent form submission
+                alert("All fields are required.");
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+            const phoneRegex = /^\d{10}$/; // 10-digit phone number
+
+            if (!emailRegex.test(emailOrNumber) && !phoneRegex.test(emailOrNumber)) {
+                e.preventDefault();
+                alert("Please enter a valid email or phone number.");
+                return;
+            }
+
+            alert("Login successful! Redirecting...");
+        });
+    </script>
+</body>
+</html>

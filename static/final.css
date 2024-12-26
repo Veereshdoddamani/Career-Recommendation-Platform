@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url("gradient-white-monochrome-background_23-2149017048.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.head {
+    width: 50%;
+    height: 50px;
+    margin: 5% auto 0; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    line-height: 50px;
+    text-align: center;
+    background-color: dimgray;
+    color: black;
+}
+
+.container {
+    background-color:rgb(22, 176, 236);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.container h2 {
+    margin-bottom: 15px;
+    color:black;
+}
+
+.container label {
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold;
+    color:black;
+}
+
+.container input[type="text"] {
+    width: 95%; 
+    padding: 8px;
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.output {
+    background: rgba(21, 20, 20, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.percentage {
+    font-size: 20px;
+    font-weight: bold;
+    color: #32cd32;
+}
